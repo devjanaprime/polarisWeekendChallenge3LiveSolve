@@ -6,12 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="vendors/angular.min.js"></script>
     <script src="scripts/client.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
     <title>Polaris Tasks WCLS</title>
 </head>
 <body ng-app="myApp">
     <h1>Polaris Tasks WCLS</h1>
     <div ng-controller="TasksController as tc">
-        
+        <section>
+            <h2>Create New Task:</h2>
+            <form ng-submit="tc.addTask()">
+                <input type="text" placeholder="task name" ng-model="tc.nameIn">
+                <input type="submit" value="Add Task">
+            </form>
+        </section>
+        <section>
+            <h2>Existing Tasks</h2>
+            <h4>Click to toggle</h4>
+            <p ng-repeat="task in tc.tasks">
+                <span ng-class="{ complete: task.complete }" ng-click="tc.toggleTask( $index )">
+                    {{ task.name }}
+                </span>
+                <button ng-click="tc.deleteTask( $index )">Delete</button>
+            </p>
+        </section>
     </div>
 </body>
 </html>
