@@ -57,10 +57,6 @@ myApp.controller( 'TasksController', function( $http ){
 
     vm.toggleTask = function( index ){
         console.log( 'in toggleTask:', vm.tasks[ index ] );
-        /// - test toggle - ///
-        vm.tasks[ index ].complete = !vm.tasks[ index ].complete;
-        console.log( 'updated:', vm.tasks[ index ] );
-        /// - end test - ///
         // $http call to toggle
         $http({
             method: 'PUT',

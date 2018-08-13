@@ -26,7 +26,7 @@
                 <span ng-class="{ complete: task.complete }" ng-click="tc.toggleTask( $index )">
                     {{ task.name }}
                 </span>
-                <button ng-click="tc.deleteTask( $index )">Delete</button>
+                <button ng-click="tc.deleteTask( task._id )">Delete</button>
             </p>
         </section>
     </div>
